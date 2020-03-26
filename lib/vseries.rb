@@ -1,6 +1,5 @@
-require "vseries/version"
+require 'vseries/version'
+require 'vseries/semantic_version'
 
 module Vseries
-  class Error < StandardError; end
-  # Your code goes here...
 end
