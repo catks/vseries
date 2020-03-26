@@ -1,5 +1,7 @@
 # Vseries
 
+![](https://github.com/catks/vseries/workflows/Ruby/badge.svg?branch=master)
+
 Vseries is a micro library to work with semantic version tags.
 
 ## Installation
