@@ -1,8 +1,6 @@
 # Vseries
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vseries`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Vseries is a micro library to work with semantic version tags.
 
 ## Installation
 
@@ -22,7 +20,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+
+require 'vseries'
+
+version_1 = Vseries::SemanticVersion.new('1.1.2')
+version_2 = Vseries::SemanticVersion.new('1.1.2-rc.2')
+
+version1.to_s # => 1.1.2
+
+version_1 == Vseries::SemanticVersion.new('1.1.2') # => true
+version_1 < version_2  # => false
+version_1 <= version_2 # => false
+version_1 > version_2  # => true
+version_1 >= version_2  # => true
+
+version_1.up(:patch).to_s # => '1.1.3'
+version_1.up(:minor).to_s # => '1.2.0'
+version_1.up(:major).to_s # => '2.0.0'
+
+version_2.up(:patch).to_s # => '1.1.3-rc.1'
+version_2.up(:minor).to_s # => '1.2.0-rc.1'
+version_2.up(:major).to_s # => '2.0.0-rc.1'
+
+```
 
 ## Development
 
@@ -32,7 +53,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/vseries.
+Bug reports and pull requests are welcome on GitHub at https://github.com/catks/vseries.
 
 ## License
 
