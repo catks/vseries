@@ -40,10 +40,12 @@ version_1 >= version_2  # => true
 version_1.up(:patch).to_s # => '1.1.3'
 version_1.up(:minor).to_s # => '1.2.0'
 version_1.up(:major).to_s # => '2.0.0'
+version_1.up(:pre_release) # Raises Vseries::SemanticVersion::PreRelease:BlankPreReleaseError
 
 version_2.up(:patch).to_s # => '1.1.3-rc.1'
 version_2.up(:minor).to_s # => '1.2.0-rc.1'
 version_2.up(:major).to_s # => '2.0.0-rc.1'
+version_2.up(:pre_release).to_s # => '1.1.2-rc.3'
 
 ```
 

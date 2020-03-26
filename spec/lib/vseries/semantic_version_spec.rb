@@ -123,7 +123,7 @@ RSpec.describe Vseries::SemanticVersion do
         it 'raises a error' do
           expect {
             described_class.new('3.0.99').up(:pre_release)
-          }.to raise_error(described_class::PreRelease::BlankPreRelease)
+          }.to raise_error(described_class::PreRelease::BlankPreReleaseError)
         end
       end
     end

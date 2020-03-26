@@ -9,7 +9,7 @@ module Vseries
       include Comparable
 
       REGEXP = /-?(.+)\.(\d+)/
-      BlankPreRelease = Class.new(StandardError)
+      BlankPreReleaseError = Class.new(StandardError)
 
       attr_accessor :name, :number
 
@@ -31,7 +31,7 @@ module Vseries
       end
 
       def up
-        raise BlankPreRelease if blank?
+        raise BlankPreReleaseError if blank?
 
         new_pre_release = self.dup
         new_pre_release.number = number ? number + 1 : @initial_number
