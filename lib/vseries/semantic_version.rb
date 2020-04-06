@@ -39,9 +39,12 @@ module Vseries
       end
 
       def <=>(other)
+        return  0 if blank? && other.blank?
         return -1 if present? && other.blank?
         return  1 if blank? && other.present?
-        to_s <=> other.to_s
+        return  1 if @name > other.name
+
+        @number <=> other.number
       end
 
       def blank?
