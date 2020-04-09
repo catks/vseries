@@ -47,6 +47,9 @@ version_2.up(:minor).to_s # => '1.2.0-rc.1'
 version_2.up(:major).to_s # => '2.0.0-rc.1'
 version_2.up(:pre_release).to_s # => '1.1.2-rc.3'
 
+version_2.release_version.to_s #=> 1.1.2
+version_1.with_pre_release('rc').to_s #=> 1.1.2-rc.1
+
 ```
 
 ## Development
