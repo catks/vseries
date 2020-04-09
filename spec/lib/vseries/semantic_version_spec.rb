@@ -130,4 +130,24 @@ RSpec.describe Vseries::SemanticVersion do
       end
     end
   end
+
+  describe '#release_version' do
+    subject { described_class.new(version).release_version }
+
+    context 'with a pre_release version' do
+      let(:version) { '1.1.2-rc.2' }
+
+      it 'returns the release version' do
+        is_expected.to eq(described_class.new('1.1.2'))
+      end
+    end
+
+    context 'with a release version' do
+      let(:version) { '9.3.2' }
+
+      it 'returns the same version' do
+        is_expected.to eq(described_class.new(version))
+      end
+    end
+  end
 end

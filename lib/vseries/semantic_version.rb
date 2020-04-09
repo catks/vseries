@@ -20,6 +20,10 @@ module Vseries
         instance
       end
 
+      def self.empty
+        new('')
+      end
+
       def initialize(pre_release, initial_number: DEFAULT_PRE_RELEASE_INITIAL_NUMBER)
         name, number = pre_release.match(REGEXP)&.captures
 
@@ -107,6 +111,12 @@ module Vseries
 
       new_version.pre_release = PreRelease.with(name: name)
 
+      new_version
+    end
+
+    def release_version
+      new_version = self.dup
+      new_version.pre_release = PreRelease.empty
       new_version
     end
 
